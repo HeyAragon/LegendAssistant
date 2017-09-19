@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id = "@+id/tab_home"
+        icon = "@mipmap/tab_home_normal"
+        title = "首页"
+
+        />
+    <!--inActiveColor="#00FF00"-->
+    <!--activeColor="#FF0000"-->
+    <!--barColorWhenSelected="#FFD000"-->
+    <!--badgeBackgroundColor="#FF0000"-->
+    <!--badgeHidesWhenActive="true"-->
+    <tab
+        id = "@+id/tab_hot"
+        icon = "@mipmap/tab_hot_normal"
+        title = "热门"
+
+        />
+    <tab
+        id = "@+id/tab_category"
+        icon = "@mipmap/tab_category_normal"
+        title = "分类"
+
+        />
+    <tab
+        id = "@+id/tab_discovery"
+        icon = "@mipmap/tab_discovery_normal"
+        title = "发现"
+        />
+    <tab
+        id = "@+id/tab_mine"
+        icon = "@mipmap/tab_mine_normal"
+        title = "我的"
+        />
+        <!--barColorWhenSelected = "#00ff00"-->
+
+</tabs>

@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">LegendAssistant</string>
+    <string name="tab_home">首页</string>
+    <string name="tab_hot">热门</string>
+    <string name="tab_category">分类</string>
+    <string name="tab_discovery">新世界</string>
+    <string name="tab_mine">我的</string>
+
+    <string name="error_unkown">未知错误</string>
+    <string name="error_http">网络连接错误</string>
+    <string name="error_system">服务器出错</string>
+    <string name="error_account_freeze">账户被冻结，请联系管理员</string>
+    <string name="error_api_no_perission">调用了无权限的API接口</string>
+    <string name="error_login">用户名或者密码错误</string>
+    <string name="error_http_400">bad request</string>
+    <string name="error_http_404">服务器资源找不到</string>
+    <string name="error_http_500">服务器错误</string>
+    <string name="error_socket_timeout">网络超时</string>
+    <string name="error_socket_unreachable">网络不可用</string>
+    <string name="error_token">登录失效，请重新登录</string>
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
