@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:id="@+id/home_floor_one_relative_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/home_item_game_icon"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            fresco:roundedCornerRadius="10dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            />
+        <TextView
+            android:id="@+id/home_item_game_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:layout_toRightOf="@id/home_item_game_icon"
+            android:layout_centerVertical="true"
+            />
+        <TextView
+            android:id="@+id/home_item_game_from"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="@string/app_name"
+            />
+
+        <ImageView
+            android:id="@+id/home_item_refresh_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_toLeftOf="@id/home_item_game_from"
+            android:layout_centerVertical="true"
+
+            />
+    </RelativeLayout>
+    <FrameLayout
+        android:id="@+id/home_floor_two_frame_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/home_floor_one_relative_container">
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/home_item_big_img"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            />
+        <TextView
+            android:id="@+id/home_item_update_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:layout_gravity="bottom"
+            android:layout_margin="20dp"
+            />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/home_item_game_introduce"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:layout_below="@id/home_floor_two_frame_container"
+        />
+
+    <View
+        android:id="@+id/home_item_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray"
+        android:layout_below="@id/home_item_game_introduce"
+        />
+
+    <RelativeLayout
+        android:id="@+id/home_floor_three_relative_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/home_item_line"
+        >
+        <TextView
+            android:id="@+id/home_item_tag_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="@string/app_name"
+            />
+        <TextView
+            android:id="@+id/home_item_tag_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/home_item_tag_one"
+            android:text="@string/app_name"
+            />
+        <TextView
+            android:id="@+id/home_item_tag_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/home_item_tag_two"
+            android:text="@string/app_name"
+            />
+
+        <TextView
+            android:id="@+id/home_item_game_comments_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:drawableLeft="@mipmap/icon_comments"
+            android:layout_alignParentRight="true"
+            android:drawablePadding="10dp"
+            />
+
+        <TextView
+            android:id="@+id/home_item_game_download_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:drawableLeft="@mipmap/icon_user"
+            android:drawablePadding="10dp"
+            android:layout_toLeftOf="@id/home_item_game_comments_count"
+            />
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

@@ -17,7 +17,7 @@ public interface HomeContract {
     }
 
     interface IHomeView extends BaseView {
-        void showData();
+        void showHomeResult(HomeResultBean homeResultBean);
     }
 
 }

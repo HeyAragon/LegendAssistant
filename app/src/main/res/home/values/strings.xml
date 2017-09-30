@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_tab_recommend">推荐</string>
+    <string name="home_tab_list">排行榜</string>
+    <string name="home_tab_strategy">攻略库</string>
+
+</resources>

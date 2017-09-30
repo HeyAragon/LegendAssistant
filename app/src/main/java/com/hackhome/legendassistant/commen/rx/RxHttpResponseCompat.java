@@ -8,7 +8,7 @@ import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.ObservableSource;
 import io.reactivex.ObservableTransformer;
-import io.reactivex.Scheduler;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
@@ -44,7 +44,7 @@ public class RxHttpResponseCompat {
                             return Observable.error(new ApiException(tBaseBean.getCode(),tBaseBean.getMessage()));
                         }
                     }
-                });
+                }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
             }
         };
     }

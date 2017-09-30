@@ -18,5 +18,13 @@ public interface ApiService {
     @GET("{home}.htm")
     Observable<BaseBean<HomeResultBean>> getHomeResult(@Path("home") String home);
 
+    /**
+     * 首页---->推荐
+     * @param home
+     * @return
+     */
+    @GET("{home}.htm")
+    Observable<BaseBean<HomeResultBean>> getRecommendResult(@Path("home") String home);
+
 
 }

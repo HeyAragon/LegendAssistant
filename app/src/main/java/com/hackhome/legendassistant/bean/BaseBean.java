@@ -5,7 +5,7 @@ package com.hackhome.legendassistant.bean;
  */
 public class BaseBean<T>{
 
-    public static final int SUCCESS = 200;
+    public static final int SUCCESS = 100;
 
     public int code;
 

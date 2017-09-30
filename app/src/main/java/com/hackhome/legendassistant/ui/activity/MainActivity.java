@@ -28,8 +28,8 @@ public class MainActivity extends BaseActivity {
     FrameLayout mContainer;
     @BindView(R.id.main_bottom_bar)
     BottomBar mBottomBar;
-    @BindView(R.id.main_tool_bar)
-    Toolbar mToolbar;
+//    @BindView(R.id.main_tool_bar)
+//    Toolbar mToolbar;
 
     private HomeFragment mHomeFragment;
     private HotFragment mHotFragment;
@@ -47,7 +47,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initView() {
-//        setSupportActionBar(mToolbar);
+
     }
 
     @Override
@@ -57,10 +57,8 @@ public class MainActivity extends BaseActivity {
         mCategoryFragment = CategoryFragment.newInstance();
         mDiscoveryFragment = DiscoveryFragment.newInstance();
         mMineFragment = MineFragment.newInstance();
-
         mFragmentManager = getSupportFragmentManager();
 
-        test();
     }
 
     @Override
@@ -78,7 +76,6 @@ public class MainActivity extends BaseActivity {
                     case R.id.tab_hot:
                         switchFragment(mHotFragment);
                         Toast.makeText(MainActivity.this,"hot",Toast.LENGTH_SHORT).show();
-                        test();
                         break;
                     case R.id.tab_category:
                         switchFragment(mCategoryFragment);
@@ -103,15 +100,12 @@ public class MainActivity extends BaseActivity {
         if (mCurrentFragment != null) {
             transaction.hide(mCurrentFragment);
         }
-
         if (!fragment.isAdded()) {
             transaction.add(R.id.main_container, fragment);
         } else {
             transaction.show(fragment);
         }
-
         transaction.commit();
-
         mCurrentFragment = fragment;
 
     }
