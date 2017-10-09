@@ -107,8 +107,6 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
     @LayoutRes
     protected abstract int setLayoutRes();
 
-
-
     @Override
     public void showLoading() {
         //显示正在加载
@@ -138,7 +136,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
     public void onDestroy() {
         super.onDestroy();
         if (mBinder!=Unbinder.EMPTY) {
-//            mBinder.unbind();
+            mBinder.unbind();
         }
     }
 }

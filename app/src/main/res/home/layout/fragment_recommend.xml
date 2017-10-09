@@ -5,11 +5,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.hackhome.legendassistant.ui.fragment.HomeFragment">
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recommend_recycler_view"
+    
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/refresh_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    </android.support.v7.widget.RecyclerView>
-
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recommend_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </android.support.v7.widget.RecyclerView>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 </LinearLayout>
