@@ -3,40 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        >
-        <TextView
-            android:id="@+id/home_item_recommend_type_txt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            android:textStyle="bold"
-
-            />
-
-        <TextView
-            android:id="@+id/home_item_more_txt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            android:textStyle="bold"
-            android:drawableRight="@mipmap/icon_more"
-            android:drawablePadding="10dp"
-            android:layout_alignParentRight="true"
-            />
-    </RelativeLayout>
+    <include layout="@layout/base_item"/>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/home_item_horizontal_recycler"
+        android:id="@+id/home_item_week_game_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
     </android.support.v7.widget.RecyclerView>
-
-
 </LinearLayout>

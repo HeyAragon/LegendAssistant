@@ -23,7 +23,10 @@ public class DataBean implements MultiItemEntity {
      * recommend_list : [{"id":"88976","icon":"http://fs.img4399.com/sykb~sykb/20170919/10251582793","title":"来战","star":"9.0"},{"id":"89452","icon":"http://fs.img4399.com/sykb~sykb/20170917/14302076371","title":"密室逃脱22海上惊魂","star":"7.3"},{"id":"78977","icon":"http://fs.img4399.com/sykb~sykb/20170914/19243143549","title":"网球大师(首测)","star":"8.7"},{"id":"84262","icon":"http://f1.img4399.com/sj~107213_logo_59112d6eb951c.jpg","title":"红色兄弟勇者团","star":"8.6"},{"id":"89426","icon":"http://fs.img4399.com/sykb~sykb/20170916/13535496298","title":"魔王瞒着勇者藏起了圣剑","star":"9.3"},{"id":"88165","icon":"http://opensj.4399api.net/tmp/hykb/game/396/icon.png","title":"钢铁战队","star":"9.5"},{"id":"86915","icon":"http://opensj.4399api.net/tmp/hykb/game/83/icon.png","title":"全民追追乐","star":"7.9"},{"id":"89396","icon":"http://opensj.4399api.net/tmp/hykb/game/331/icon.png","title":"梦境奇缘:莉亚","star":"8.4"},{"id":"89017","icon":"http://fs.img4399.com/sykb~sykb/20170907/18053122596","title":"水晶连线Lintrix","star":""},{"id":"69995","icon":"http://fs.img4399.com/sykb~sykb/20170913/10313226313","title":"遗弃汉化版","star":"8.9"}]
      */
     //正常列表
-    public static final int NORMAL_IMG = 0;
+    public static final int DEFAULT_NORMAL = 0;
+
+    //正常列表-->可刷新更换
+    public static final int DEFAULT_CAN_CHANGE = 99;
 
     //本周精选游戏合集
     public static final int GAME_LIST = 3;

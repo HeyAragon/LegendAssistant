@@ -2,7 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:fresco="http://schemas.android.com/apk/res-auto">
     <RelativeLayout
         android:id="@+id/home_floor_one_relative_container"
@@ -10,14 +10,15 @@
         android:layout_height="wrap_content">
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/home_item_game_icon"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             fresco:roundedCornerRadius="10dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
+            android:layout_margin="10dp"
             />
         <TextView
-            android:id="@+id/home_item_game_name"
+            android:id="@+id/home_item_game_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/app_name"
@@ -39,7 +40,7 @@
             android:layout_height="40dp"
             android:layout_toLeftOf="@id/home_item_game_from"
             android:layout_centerVertical="true"
-
+            android:visibility="gone"
             />
     </RelativeLayout>
     <FrameLayout
