@@ -71,6 +71,7 @@ public class RecommendFragment extends BaseFragment<RecommendPresenter> implemen
     private void initListener() {
 //        mRefreshLayout.setO
         //
+        //second
     }
 
     @Override
