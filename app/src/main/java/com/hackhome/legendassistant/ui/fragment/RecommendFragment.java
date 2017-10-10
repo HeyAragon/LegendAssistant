@@ -114,6 +114,7 @@ public class RecommendFragment extends BaseFragment<RecommendPresenter> implemen
     public View loadChannelView(List<NavBean> navBeans) {
         mChannelView = mLayoutInflater.inflate(R.layout.home_item_channel, null);
         mChannelRecyclerView = mChannelView.findViewById(R.id.home_item_channel_recycler_view);
+        mChannelRecyclerView.setNestedScrollingEnabled(false);
         mChannelRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 5));
         mChannelRecyclerView.setAdapter(new RecommendChannelAdapter(navBeans));
         return mChannelView;
