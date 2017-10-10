@@ -21,7 +21,11 @@ public class HomeFragmentPagerAdapter extends FragmentPagerAdapter {
         mTitles.add("推荐");
         mTitles.add("排行榜");
         mTitles.add("攻略库");
+<<<<<<< HEAD
         //master
+=======
+        //fuck
+>>>>>>> test_hy
     }
 
     @Override
