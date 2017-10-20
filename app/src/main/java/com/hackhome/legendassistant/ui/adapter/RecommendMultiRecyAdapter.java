@@ -2,7 +2,12 @@ package com.hackhome.legendassistant.ui.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Spannable;
+import android.text.Spanned;
+import android.text.style.BackgroundColorSpan;
+import android.text.style.ImageSpan;
 import android.view.View;
 import android.widget.TextView;
 
@@ -22,11 +27,13 @@ public class RecommendMultiRecyAdapter extends BaseMultiItemQuickAdapter<DataBea
 
     private Context mContext;
 
+    private RecyclerView mGameListRecyclerView,mHorizontalRecyclerView,mNewsRecyclerView;
     private RecommendGameListAdapter mRecommendGameListAdapter;
-    private RecyclerView mGameListRecyclerView;
+    private RecommendHorizontalAdapter mHorizontalGameAdapter;
+    private RecommendNewsAdapter mRecommendNewsAdapter;
 
-    public RecommendMultiRecyAdapter(List<DataBean> data,Context context) {
-        super(data);
+    public RecommendMultiRecyAdapter(Context context) {
+        super(null);
         this.mContext = context;
         addItemType(DataBean.DEFAULT_NORMAL,R.layout.home_item_default);
         addItemType(DataBean.DEFAULT_CAN_CHANGE,R.layout.home_item_default);
@@ -60,8 +67,8 @@ public class RecommendMultiRecyAdapter extends BaseMultiItemQuickAdapter<DataBea
                     helper.setText(R.id.home_item_game_introduce,item.getIntro() );
                     helper.setText(R.id.home_item_update_time, DateUtils.getTimePoint(item.getTime()));
                     helper.setText(R.id.home_item_tag_one, item.getTags().get(0).getTitle());
-                    helper.setText(R.id.home_item_tag_two, item.getTags().get(1).getTitle());
-                    helper.setText(R.id.home_item_tag_three, item.getTags().get(2).getTitle());
+//                    helper.setText(R.id.home_item_tag_two, item.getTags().get(1).getTitle());
+//                    helper.setText(R.id.home_item_tag_three, item.getTags().get(2).getTitle());
                     helper.setText(R.id.home_item_game_download_count, item.getNum_download());
                     helper.setText(R.id.home_item_game_comments_count, item.getNum_comment()+"");
                 } else {
@@ -77,23 +84,36 @@ public class RecommendMultiRecyAdapter extends BaseMultiItemQuickAdapter<DataBea
                     helper.setText(R.id.home_item_tag_three, item.getHost_list().get(0).getTags().get(2).getTitle());
                     helper.setText(R.id.home_item_game_download_count, item.getHost_list().get(0).getNum_download());
                     helper.setText(R.id.home_item_game_comments_count, item.getHost_list().get(0).getNum_comment());
-
                 }
-
                 break;
 
             case DataBean.RECOMMEND_LIST:
+                helper.setText(R.id.base_item_recommend_type_txt, item.getTitle());
+                helper.setVisible(R.id.base_item_more_txt, true);
+                mHorizontalRecyclerView = helper.getView(R.id.base_item_recycler_view);
+                mHorizontalRecyclerView.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false));
+                mHorizontalGameAdapter = new RecommendHorizontalAdapter(item.getRecommend_list());
+                mHorizontalRecyclerView.setAdapter(mHorizontalGameAdapter);
+                mHorizontalRecyclerView.setNestedScrollingEnabled(false);
+
                 break;
             case DataBean.NEWS:
-                break;
-            case DataBean.GAME_LIST:
-
                 helper.setText(R.id.base_item_recommend_type_txt, item.getTitle());
                 helper.setVisible(R.id.base_item_more_txt, false);
-                mGameListRecyclerView = helper.getView(R.id.home_item_week_game_list);
+                mNewsRecyclerView = helper.getView(R.id.base_item_recycler_view);
+                mNewsRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+                mRecommendNewsAdapter = new RecommendNewsAdapter(item.getList());
+                mNewsRecyclerView.setAdapter(mRecommendNewsAdapter);
+                mNewsRecyclerView.setNestedScrollingEnabled(false);
+                break;
+            case DataBean.GAME_LIST:
+                helper.setText(R.id.base_item_recommend_type_txt, item.getTitle());
+                helper.setVisible(R.id.base_item_more_txt, false);
+                mGameListRecyclerView = helper.getView(R.id.base_item_recycler_view);
                 mRecommendGameListAdapter = new RecommendGameListAdapter(item.getTags());
                 mGameListRecyclerView.setLayoutManager(new GridLayoutManager(mContext,2));
                 mGameListRecyclerView.setAdapter(mRecommendGameListAdapter);
+                mGameListRecyclerView.setNestedScrollingEnabled(false);
                 break;
 
         }

@@ -6,6 +6,7 @@ import com.hackhome.legendassistant.commen.exception.BaseException;
 import com.hackhome.legendassistant.commen.rx.RxErrorHandler;
 
 import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.Disposable;
 
 /**
  * Created by Administrator on 2017/9/27 0027.
@@ -21,6 +22,11 @@ public abstract class ErrorHandleSubscriber<T> extends BaseSubscriber<T> {
         this.mContext = context;
 
         mRxErrorHandler = new RxErrorHandler(mContext);
+    }
+
+    @Override
+    public void onSubscribe(@NonNull Disposable d) {
+
     }
 
     @Override
