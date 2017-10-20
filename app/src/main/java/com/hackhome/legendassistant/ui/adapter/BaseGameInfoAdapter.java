@@ -34,8 +34,7 @@ public class BaseGameInfoAdapter extends BaseQuickAdapter<DataBean,BaseViewHolde
     protected void convert(BaseViewHolder helper, DataBean item) {
         SimpleDraweeView gameIcon = helper.getView(R.id.base_game_icon);
 //        gameIcon.setImageURI(item.);
-        //test real main master
-        //merge
+        //main master
     }
 
     public static class Builder{
