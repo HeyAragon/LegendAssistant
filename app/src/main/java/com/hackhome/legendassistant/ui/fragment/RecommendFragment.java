@@ -2,15 +2,13 @@ package com.hackhome.legendassistant.ui.fragment;
 
 import android.content.Context;
 import android.net.Uri;
-import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.hackhome.legendassistant.R;
 import com.hackhome.legendassistant.bean.HomeResultBean;
@@ -23,7 +21,7 @@ import com.hackhome.legendassistant.presenter.RecommendPresenter;
 import com.hackhome.legendassistant.presenter.contract.RecommendContract;
 import com.hackhome.legendassistant.ui.adapter.RecommendChannelAdapter;
 import com.hackhome.legendassistant.ui.adapter.RecommendMultiRecyAdapter;
-import com.hackhome.legendassistant.ui.base.BaseFragment;
+import com.hackhome.legendassistant.ui.base.BaseRefreshFragment;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -32,46 +30,51 @@ import com.youth.banner.loader.ImageLoader;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
-
-
 /**
  * Created by Administrator on 2017/9/29 0029.
  */
-public class RecommendFragment extends BaseFragment<RecommendPresenter> implements RecommendContract.IRecommendView {
+public class RecommendFragment extends BaseRefreshFragment<RecommendPresenter> implements RecommendContract.IRecommendView{
 
-    @BindView(R.id.recommend_recycler_view)
-    RecyclerView mRecommendRecyclerView;
-    @BindView(R.id.refresh_layout)
-    SmartRefreshLayout mRefreshLayout;
-
-    private RecommendMultiRecyAdapter mRecommendMultiRecyAdapter;
-
+    private boolean mIsHasMore;
+    private int mCurrentPage = 1;
     private View mBannerView, mChannelView;
-
-    private RecyclerView mChannelRecyclerView;
-
-    private LayoutInflater mLayoutInflater;
-
+    private SmartRefreshLayout mRefreshLayout;
+    private RecommendMultiRecyAdapter mRecommendMultiRecyAdapter;
+    private RecyclerView mChannelRecyclerView,mRecommendRecyclerView;
 
     public static RecommendFragment newInstance() {
         return new RecommendFragment();
     }
 
     @Override
-    protected void initData() {
-        mPresenter.getRecommendResult("recommend-home-144-page-1");
-        mLayoutInflater = LayoutInflater.from(getContext());
-
-        initListener();
+    public void loadData() {
+        Log.i("aragon", "RecommendFragment--loadData: ");
+        mPresenter.getRecommendResult(mCurrentPage);
     }
 
-    private void initListener() {
-//        mRefreshLayout.setO
-        //
-        //second
+    @Override
+    protected void initView() {
+        mRecommendRecyclerView = getBaseRecyclerView();
+        mRefreshLayout = getBaseRefreshLayout();
+    }
+
+    @Override
+    public void onRefreshDada() {
+        mCurrentPage = 1;
+        mPresenter.getRecommendResult(mCurrentPage);
+    }
+
+    @Override
+    public void onLoadMoreData() {
+        if (mIsHasMore) {
+            mPresenter.getRecommendResult(mCurrentPage);
+        }
+    }
+
+    @Override
+    public BaseQuickAdapter buildAdapter() {
+        mRecommendMultiRecyAdapter = new RecommendMultiRecyAdapter(mContext);
+        return mRecommendMultiRecyAdapter;
     }
 
     @Override
@@ -81,21 +84,49 @@ public class RecommendFragment extends BaseFragment<RecommendPresenter> implemen
                 .recommendModule(new RecommendModule(this))
                 .build()
                 .inject(this);
+        Log.i("aragon", "Recommend--setAppComponent: ");
     }
 
+
     @Override
-    protected int setLayoutRes() {
-        return R.layout.fragment_recommend;
+    public void showHomeResultBean(HomeResultBean homeResultBean, boolean isFromRefresh) {
+//        Log.i("huck", "showHomeResultBean: ");
+        mIsFirstLoading = false;
+
+        if (isFromRefresh) {
+            mRecommendMultiRecyAdapter.removeAllHeaderView();
+            mRecommendMultiRecyAdapter.addHeaderView(loadBannerView(homeResultBean.getSlide()), 0);
+            mRecommendMultiRecyAdapter.addHeaderView(loadChannelView(homeResultBean.getNav()), 1);
+            mRecommendMultiRecyAdapter.setNewData(homeResultBean.getData());
+        } else {
+            mRecommendMultiRecyAdapter.addData(homeResultBean.getData());
+        }
+
+
+        if (getBaseRefreshLayout().isRefreshing()) {
+            mRefreshLayout.finishRefresh();
+        }
+
+        if (homeResultBean.getNextpage() == 1) {
+            ++mCurrentPage;
+            mRecommendMultiRecyAdapter.setEnableLoadMore(true);
+            mIsHasMore = true;
+        } else {
+            mIsHasMore = false;
+        }
+
+        Log.i("huck", "showHomeResultBean: dataSize="+mRecommendMultiRecyAdapter.getItemCount());
     }
 
-    @Override
-    public void showHomeResultBean(HomeResultBean homeResultBean) {
-        mRecommendRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mRecommendMultiRecyAdapter = new RecommendMultiRecyAdapter(homeResultBean.getData(), getContext());
-        mRecommendRecyclerView.setAdapter(mRecommendMultiRecyAdapter);
-        mRecommendMultiRecyAdapter.addHeaderView(loadBannerView(homeResultBean.getSlide()), 0);
-        mRecommendMultiRecyAdapter.addHeaderView(loadChannelView(homeResultBean.getNav()), 1);
 
+    @Override
+    public void loadMoreComplete() {
+
+        mRecommendMultiRecyAdapter.loadMoreComplete();
+
+        if (!mIsHasMore) {
+            mRecommendMultiRecyAdapter.loadMoreEnd(false);
+        }
     }
 
     public View loadBannerView(List<SlideBean> slideBeans) {
@@ -104,7 +135,7 @@ public class RecommendFragment extends BaseFragment<RecommendPresenter> implemen
         for (SlideBean slideBean : slideBeans) {
             imgUrls.add(slideBean.getIcon());
         }
-        mBannerView = mLayoutInflater.inflate(R.layout.home_item_banner, null);
+        mBannerView = mInflater.inflate(R.layout.home_item_banner, null);
         Banner banner = mBannerView.findViewById(R.id.home_item_banner);
         banner.setIndicatorGravity(BannerConfig.CENTER);
         banner.setImageLoader(new FrescoImageLoader());
@@ -114,7 +145,7 @@ public class RecommendFragment extends BaseFragment<RecommendPresenter> implemen
     }
 
     public View loadChannelView(List<NavBean> navBeans) {
-        mChannelView = mLayoutInflater.inflate(R.layout.home_item_channel, null);
+        mChannelView = mInflater.inflate(R.layout.home_item_channel, null);
         mChannelRecyclerView = mChannelView.findViewById(R.id.home_item_channel_recycler_view);
         mChannelRecyclerView.setNestedScrollingEnabled(false);
         mChannelRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 5));

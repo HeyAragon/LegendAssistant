@@ -9,21 +9,20 @@ import java.util.ArrayList;
 /**
  * Created by Administrator on 2017/9/29 0029.
  */
-public class HomeFragmentPagerAdapter extends FragmentPagerAdapter {
+public class BaseFragmentPagerAdapter extends FragmentPagerAdapter {
 
     private ArrayList<Fragment> mFragments;
-    private ArrayList<String> mTitles = new ArrayList<>();
+    private ArrayList<String> mTitles;
 
 
-    public HomeFragmentPagerAdapter(FragmentManager fm,ArrayList<Fragment> fragments) {
+    public BaseFragmentPagerAdapter(FragmentManager fm, ArrayList<Fragment> fragments) {
         super(fm);
         this.mFragments = fragments;
-        mTitles.add("推荐");
-        mTitles.add("排行榜");
-        mTitles.add("攻略库");
+    }
 
-        //master
-
+    public void setTitles(ArrayList<String> titles) {
+        this.mTitles = titles;
+        this.notifyDataSetChanged();
     }
 
     @Override
@@ -40,4 +39,8 @@ public class HomeFragmentPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         return mTitles.get(position);
     }
+
+
+
+
 }

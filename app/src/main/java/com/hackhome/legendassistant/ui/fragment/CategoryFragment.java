@@ -53,6 +53,11 @@ public class CategoryFragment extends BaseFragment {
     }
 
     @Override
+    protected void loadData() {
+
+    }
+
+    @Override
     protected void setAppComponent(AppComponent appComponent) {
 
     }

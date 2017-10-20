@@ -12,11 +12,8 @@ package com.hackhome.legendassistant.commen.exception;
 
 public class BaseException extends Exception {
 
-
-
     /*API错误*/
     public static final int API_ERROR = 0x0;
-
     /*网络错误*/
     public static final int NETWORD_ERROR = 0x1;
     /*http_错误*/
@@ -29,49 +26,30 @@ public class BaseException extends Exception {
     public static final int RUNTIME_ERROR = 0x5;
     /*无法解析该域名*/
     public static final int UNKOWNHOST_ERROR = 0x6;
-
     /*连接网络超时*/
     public static final int SOCKET_TIMEOUT_ERROR = 0x7;
-
     /*无网络连接*/
     public static final int SOCKET_ERROR = 0x8;
 
-
-
-
     //    api /////////////////////////////////////////
-
     // 服务器错误
     public static final int  ERROR_API_SYSTEM=10000;
-
     // 登录错误，用户名密码错误
     public static final int  ERROR_API_LOGIN=10001;
-
     //调用无权限的API
     public static final int  ERROR_API_NO_PERMISSION=10002;
-
     //账户被冻结
     public static final int  ERROR_API_ACCOUNT_FREEZE=10003;
-
-
-
     //Token 失效
     public static final int  ERROR_TOKEN=10010;
-
-
-
     // http
-
     public static final int ERROR_HTTP_400=400;
-
     public static final int ERROR_HTTP_404=404;
-
     public static final int ERROR_HTTP_405=405;
-
     public static final int ERROR_HTTP_500=500;
 
-
-
+    //超出页数范围
+    public static final int ERROR_PAGE = 2001;
 
 
     private int code;

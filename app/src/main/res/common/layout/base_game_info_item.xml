@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/base_ranking_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        />
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/base_game_icon"
+        android:layout_width="108dp"
+        android:layout_height="108dp"
+        android:layout_toRightOf="@id/base_ranking_txt"
+        android:layout_margin="10dp"
+        app:roundedCornerRadius="12dp"
+        />
+    <TextView
+        android:id="@+id/base_game_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/base_game_icon"
+        android:textColor="@color/black"
+        android:layout_toRightOf="@id/base_game_icon"
+        android:text="wangzherongyao"
+        />
+
+    <TextView
+        android:id="@+id/game_score_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="dfsdfsdf"
+        android:layout_below="@id/base_game_name"
+        android:layout_alignLeft="@id/base_game_name"
+        android:layout_centerVertical="true"
+        />
+    <LinearLayout
+        android:id="@+id/base_tag_ll_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/base_game_name"
+        android:layout_toRightOf="@id/game_score_txt"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        >
+        <TextView
+            android:id="@+id/base_tag_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/game_tag_shape"
+            android:layout_marginRight="10dp"
+            />
+        <TextView
+            android:id="@+id/base_tag_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/game_tag_shape"
+            android:layout_marginRight="10dp"
+            />
+        <TextView
+            android:id="@+id/base_tag_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/game_tag_shape"
+            />
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/game_size_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/base_game_name"
+        android:layout_alignBottom="@id/base_game_icon"
+        android:text="sdfsfsdf"
+
+        />
+    <TextView
+        android:layout_alignParentRight="true"
+        android:id="@+id/base_hot_count_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="693034"
+        android:layout_alignTop="@id/base_game_icon"
+
+        />
+    <Button
+        android:id="@+id/base_download_btn"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@id/base_game_icon"
+        />
+
+
+</RelativeLayout>
