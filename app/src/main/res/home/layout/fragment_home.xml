@@ -13,7 +13,7 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
         >
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -21,19 +21,18 @@
             >
 
             <ImageView
-                android:id="@+id/home_title_icon"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="2"
                 android:src="@mipmap/icon_logo"
-                android:scaleType="centerCrop"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
+                android:scaleType="centerInside"
+
                 />
             <android.support.design.widget.TabLayout
                 android:id="@+id/home_tab_layout"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/home_title_icon"
+                android:layout_weight="3"
                 app:tabMode="fixed"
                 app:tabTextColor="@color/gray"
                 app:tabSelectedTextColor="@color/white"
@@ -62,13 +61,12 @@
 
             <ImageView
                 android:id="@+id/home_search"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:src="@mipmap/icon_search_tool"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
                 />
-        </RelativeLayout>
+        </LinearLayout>
 
     </android.support.v7.widget.Toolbar>
 

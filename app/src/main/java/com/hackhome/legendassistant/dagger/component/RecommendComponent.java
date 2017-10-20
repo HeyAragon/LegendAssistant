@@ -1,6 +1,7 @@
 package com.hackhome.legendassistant.dagger.component;
 
 import com.hackhome.legendassistant.dagger.FragmentScope;
+import com.hackhome.legendassistant.dagger.module.AppModule;
 import com.hackhome.legendassistant.dagger.module.RecommendModule;
 import com.hackhome.legendassistant.ui.fragment.RecommendFragment;
 

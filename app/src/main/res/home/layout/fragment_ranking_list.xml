@@ -5,24 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#ff00ff"
     tools:context="com.hackhome.legendassistant.ui.fragment.HomeFragment">
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/ranking_tab_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/home_title_icon"
-        app:tabMode="fixed"
-        app:tabTextColor="@color/gray"
-        app:tabSelectedTextColor="@color/white"
-        app:tabIndicatorColor="@color/white"
-        />
-    <android.support.v4.view.ViewPager
-        android:id="@+id/ranking_pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </android.support.v4.view.ViewPager>
 
 
 

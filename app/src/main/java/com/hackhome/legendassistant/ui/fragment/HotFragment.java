@@ -53,11 +53,6 @@ public class HotFragment extends BaseFragment {
     }
 
     @Override
-    protected void loadData() {
-
-    }
-
-    @Override
     protected void setAppComponent(AppComponent appComponent) {
 
     }

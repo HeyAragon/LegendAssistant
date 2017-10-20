@@ -6,16 +6,6 @@
     <string name="tab_discovery">新世界</string>
     <string name="tab_mine">我的</string>
 
-    <string name="tab_title_recommend">推荐</string>
-    <string name="tab_title_ranking">排行榜</string>
-    <string name="tab_title_strategy_store">攻略库</string>
-    <string name="tab_title_hot_recommend">热门推荐</string>
-    <string name="tab_title_recently_update">最新跟新</string>
-    <string name="tab_title_highest_score">最高评分</string>
-    <string name="tab_title_new_rise">新品飙升榜</string>
-    <string name="tab_title_popular">人气排行榜</string>
-    <string name="tab_title_expect">新游期待榜</string>
-
     <string name="error_unkown">未知错误</string>
     <string name="error_http">网络连接错误</string>
     <string name="error_system">服务器出错</string>
@@ -28,7 +18,6 @@
     <string name="error_socket_timeout">网络超时</string>
     <string name="error_socket_unreachable">网络不可用</string>
     <string name="error_token">登录失效，请重新登录</string>
-    <string name="error_page_beyond_range">超出页数范围</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

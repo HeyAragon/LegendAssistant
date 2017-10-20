@@ -1,7 +1,6 @@
 package com.hackhome.legendassistant.bean;
 
 import com.chad.library.adapter.base.entity.MultiItemEntity;
-import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
@@ -48,32 +47,16 @@ public class DataBean implements MultiItemEntity {
     private UserinfoBean userinfo;
     private int num_comment;
     private String num_download;
-    private String devname;
     private DowninfoBean downinfo;
     private int type;
     private int top_num;
     private List<TagsBean> tags;
     private List<HostListBean> host_list;
     private List<RecommendListBean> recommend_list;
-    /**
-     * type : 6
-     * list : [{"id":"798102","tag":"专栏","writer":"未荻未荻","title":"「就哔哔」《我的世界》里你最喜欢怎么玩呢？","icon":"http://fs.img4399.com/sykb~sykb/20171011/10582434285","click":1430},{"id":"798070","tag":"专栏","writer":"钙君","title":"大逃杀手游不完全盘点-谁会第一个吃到螃蟹?","icon":"http://newsimg.5054399.com/uploads/userup/1710/11091032XJ.jpg","click":7095},{"id":"797762","tag":"热门","writer":"钙君","title":"一定要体验台服王者荣耀《传说对决》的四个理由","icon":"http://newsimg.5054399.com/uploads/userup/1710/1010111b418.jpg","click":10717}]
-     */
-
-    private List<ListBean> list;
 
     @Override
     public int getItemType() {
         return type;
-    }
-
-
-    public String getDevname() {
-        return devname;
-    }
-
-    public void setDevname(String devname) {
-        this.devname = devname;
     }
 
     public long getId() {
@@ -196,12 +179,248 @@ public class DataBean implements MultiItemEntity {
         this.recommend_list = recommend_list;
     }
 
-    public List<ListBean> getList() {
-        return list;
+    public static class UserinfoBean {
+        /**
+         * uid : 2322878841
+         * name : 荒兔
+         * avatar : http://a.img4399.com/2322878841/middle
+         */
+
+        private String uid;
+        private String name;
+        private String avatar;
+
+        public String getUid() {
+            return uid;
+        }
+
+        public void setUid(String uid) {
+            this.uid = uid;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getAvatar() {
+            return avatar;
+        }
+
+        public void setAvatar(String avatar) {
+            this.avatar = avatar;
+        }
     }
 
-    public void setList(List<ListBean> list) {
-        this.list = list;
+    public static class DowninfoBean {
+        /**
+         * id : 89374
+         * icon : http://fs.img4399.com/sykb~sykb/20170915/11292779484
+         * packag : com.twitchyfinger.google.beaman
+         * appname : 真的汉子
+         * appinfo : 做男人不容易。要做一个真汉子更加难！ “真的汉子”让你感受一下男人之苦。游戏每关卡都充满尴尬和搞笑情境让你用“最好”的方式解答。要更Man就要做个真的汉子！【游戏特点】随意式猜谜游戏超过30个搞笑多选择关卡创新触摸，摇动及声控控制考验你解开关卡的创意可能是你玩过最Man的游戏！年度最搞笑游戏！
+         * md5 : da4b0ae67798676c662b8685cac2d765
+         * version : 1.0.2
+         * apkurl : http://sj.img4399.com/game_list/348/com.twitchyfinger.google.beaman/game.v177699.apk
+         * size_m : 57.73M
+         * status : 1
+         * need_gplay : false
+         * sdk_version : 17
+         * ppk_list : []
+         */
+
+        private String id;
+        private String icon;
+        private String packag;
+        private String appname;
+        private String appinfo;
+        private String md5;
+        private String version;
+        private String apkurl;
+        private String size_m;
+        private String status;
+        private boolean need_gplay;
+        private int sdk_version;
+        private List<?> ppk_list;
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public String getIcon() {
+            return icon;
+        }
+
+        public void setIcon(String icon) {
+            this.icon = icon;
+        }
+
+        public String getPackag() {
+            return packag;
+        }
+
+        public void setPackag(String packag) {
+            this.packag = packag;
+        }
+
+        public String getAppname() {
+            return appname;
+        }
+
+        public void setAppname(String appname) {
+            this.appname = appname;
+        }
+
+        public String getAppinfo() {
+            return appinfo;
+        }
+
+        public void setAppinfo(String appinfo) {
+            this.appinfo = appinfo;
+        }
+
+        public String getMd5() {
+            return md5;
+        }
+
+        public void setMd5(String md5) {
+            this.md5 = md5;
+        }
+
+        public String getVersion() {
+            return version;
+        }
+
+        public void setVersion(String version) {
+            this.version = version;
+        }
+
+        public String getApkurl() {
+            return apkurl;
+        }
+
+        public void setApkurl(String apkurl) {
+            this.apkurl = apkurl;
+        }
+
+        public String getSize_m() {
+            return size_m;
+        }
+
+        public void setSize_m(String size_m) {
+            this.size_m = size_m;
+        }
+
+        public String getStatus() {
+            return status;
+        }
+
+        public void setStatus(String status) {
+            this.status = status;
+        }
+
+        public boolean isNeed_gplay() {
+            return need_gplay;
+        }
+
+        public void setNeed_gplay(boolean need_gplay) {
+            this.need_gplay = need_gplay;
+        }
+
+        public int getSdk_version() {
+            return sdk_version;
+        }
+
+        public void setSdk_version(int sdk_version) {
+            this.sdk_version = sdk_version;
+        }
+
+        public List<?> getPpk_list() {
+            return ppk_list;
+        }
+
+        public void setPpk_list(List<?> ppk_list) {
+            this.ppk_list = ppk_list;
+        }
+    }
+
+    public static class TagsBean {
+        /**
+         * id : 129
+         * title : 本周新游
+         */
+
+        private String id;
+        private String title;
+
+        private String icon;
+
+        private String intro;
+        private String intro2;
+        private int num;
+        private String pic;
+
+        public String getId() {
+            return id;
+        }
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public String getIcon() {
+            return icon;
+        }
+
+        public void setIcon(String icon) {
+            this.icon = icon;
+        }
+
+        public String getIntro() {
+            return intro;
+        }
+
+        public void setIntro(String intro) {
+            this.intro = intro;
+        }
+
+        public String getIntro2() {
+            return intro2;
+        }
+
+        public void setIntro2(String intro2) {
+            this.intro2 = intro2;
+        }
+
+        public int getNum() {
+            return num;
+        }
+
+        public void setNum(int num) {
+            this.num = num;
+        }
+
+        public String getPic() {
+            return pic;
+        }
+
+        public void setPic(String pic) {
+            this.pic = pic;
+        }
     }
 
     public static class HostListBean {
@@ -225,7 +444,7 @@ public class DataBean implements MultiItemEntity {
         private String intro;
         private String num_comment;
         private String num_download;
-        private List<TagsBean> tags;
+        private List<TagsBeanX> tags;
 
         public String getId() {
             return id;
@@ -291,14 +510,39 @@ public class DataBean implements MultiItemEntity {
             this.num_download = num_download;
         }
 
-        public List<TagsBean> getTags() {
+        public List<TagsBeanX> getTags() {
             return tags;
         }
 
-        public void setTags(List<TagsBean> tags) {
+        public void setTags(List<TagsBeanX> tags) {
             this.tags = tags;
         }
 
+        public static class TagsBeanX {
+            /**
+             * id : 100
+             * title : 多人联机
+             */
+
+            private String id;
+            private String title;
+
+            public String getId() {
+                return id;
+            }
+
+            public void setId(String id) {
+                this.id = id;
+            }
+
+            public String getTitle() {
+                return title;
+            }
+
+            public void setTitle(String title) {
+                this.title = title;
+            }
+        }
     }
 
     public static class RecommendListBean {
@@ -344,72 +588,6 @@ public class DataBean implements MultiItemEntity {
 
         public void setStar(String star) {
             this.star = star;
-        }
-    }
-
-    public static class ListBean {
-        /**
-         * id : 798102
-         * tag : 专栏
-         * writer : 未荻未荻
-         * title : 「就哔哔」《我的世界》里你最喜欢怎么玩呢？
-         * icon : http://fs.img4399.com/sykb~sykb/20171011/10582434285
-         * click : 1430
-         */
-
-        private String id;
-        private String tag;
-        private String writer;
-        private String title;
-        private String icon;
-        private String click;
-
-        public String getId() {
-            return id;
-        }
-
-        public void setId(String id) {
-            this.id= id;
-        }
-
-        public String getTag() {
-            return tag;
-        }
-
-        public void setTag(String tag) {
-            this.tag = tag;
-        }
-
-        public String getWriter() {
-            return writer;
-        }
-
-        public void setWriter(String writer) {
-            this.writer = writer;
-        }
-
-        public String getTitle() {
-            return title;
-        }
-
-        public void setTitle(String titleXsd) {
-            this.title = title;
-        }
-
-        public String getIcon() {
-            return icon;
-        }
-
-        public void setIcon(String icon) {
-            this.icon = icon;
-        }
-
-        public String getClick() {
-            return click;
-        }
-
-        public void setClick(String click) {
-            this.click = click;
         }
     }
 }

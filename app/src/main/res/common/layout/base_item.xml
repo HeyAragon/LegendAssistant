@@ -22,7 +22,7 @@
             android:id="@+id/base_item_more_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/show_all"
+            android:text="@string/app_name"
             android:textStyle="bold"
             android:drawablePadding="10dp"
             android:layout_centerVertical="true"
@@ -40,7 +40,7 @@
     </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/base_item_recycler_view"
+        android:id="@+id/base_item_horizontal_recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

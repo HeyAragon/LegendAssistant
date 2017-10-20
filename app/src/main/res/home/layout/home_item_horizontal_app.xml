@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <include layout="@layout/base_title_type_item"/>
+    <include layout="@layout/base_item"/>
 
 
 </LinearLayout>

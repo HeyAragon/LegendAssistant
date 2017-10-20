@@ -1,5 +1,6 @@
 package com.hackhome.legendassistant.dagger.module;
 
+import com.hackhome.legendassistant.dagger.FragmentScope;
 import com.hackhome.legendassistant.data.ApiService;
 import com.hackhome.legendassistant.data.HomeModel;
 import com.hackhome.legendassistant.presenter.contract.HomeContract;

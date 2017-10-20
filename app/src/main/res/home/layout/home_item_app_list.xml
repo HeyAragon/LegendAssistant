@@ -5,12 +5,12 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <include layout="@layout/base_title_type_item"/>
+    <include layout="@layout/base_item"/>
 
-    <!--<android.support.v7.widget.RecyclerView-->
-        <!--android:id="@+id/home_item_week_game_list"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content">-->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/home_item_week_game_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <!--</android.support.v7.widget.RecyclerView>-->
+    </android.support.v7.widget.RecyclerView>
 </LinearLayout>

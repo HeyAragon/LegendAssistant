@@ -1,7 +1,5 @@
 package com.hackhome.legendassistant.commen.rx;
 
-import android.graphics.drawable.GradientDrawable;
-
 import com.hackhome.legendassistant.bean.BaseBean;
 import com.hackhome.legendassistant.commen.exception.ApiException;
 
@@ -19,9 +17,9 @@ import io.reactivex.schedulers.Schedulers;
  * Created by Administrator on 2017/9/19 0019.
  */
 public class RxHttpResponseCompat {
-    GradientDrawable mGradientDrawable = new GradientDrawable();
 
     public static <T> ObservableTransformer<BaseBean<T>,T> transfomResult(){
+
         return new ObservableTransformer<BaseBean<T>, T>() {
             @Override
             public ObservableSource<T> apply(@NonNull Observable<BaseBean<T>> baseBeanObservable) {
@@ -39,8 +37,8 @@ public class RxHttpResponseCompat {
                                     } catch (Exception e) {
                                         subscriber.onError(e);
                                     }
-                                }
 
+                                }
                             });
                         } else {
                             return Observable.error(new ApiException(tBaseBean.getCode(),tBaseBean.getMessage()));

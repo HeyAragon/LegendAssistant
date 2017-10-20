@@ -2,7 +2,6 @@ package com.hackhome.legendassistant.data;
 
 
 import com.hackhome.legendassistant.bean.BaseBean;
-import com.hackhome.legendassistant.bean.DataBean;
 import com.hackhome.legendassistant.bean.HomeResultBean;
 
 import io.reactivex.Observable;
@@ -24,16 +23,8 @@ public interface ApiService {
      * @param home
      * @return
      */
-    @GET("{home_recommend}.htm")
-    Observable<BaseBean<HomeResultBean>> getRecommendResult(@Path("home_recommend") String home);
-
-    //
-    @GET("{home_ranking_list}.htm")
-    Observable<BaseBean<HomeResultBean>> getGameInfoResult(@Path("home_ranking_list") String ranking);
-//    @GET("{home_ranking_new_list}.htm")
-//    Observable<BaseBean<DataBean>> getRankingNewResult(@Path("home_ranking_new_list") String rankingNew);
-//    @GET("{home_ranking_new_list}.htm")
-//    Observable<BaseBean<DataBean>> getRankingNewResult(@Path("home_ranking_new_list") String rankingNew);
+    @GET("{home}.htm")
+    Observable<BaseBean<HomeResultBean>> getRecommendResult(@Path("home") String home);
 
 
 }
