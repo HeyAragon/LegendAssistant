@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2017/9/19 0019.
  */
-public class HomeResultBean {
+public class BaseResultBean {
 
     /**
      * nextpage : 1

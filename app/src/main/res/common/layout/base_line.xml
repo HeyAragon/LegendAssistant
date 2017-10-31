@@ -4,13 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/home_item_channel_recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        >
-    </android.support.v7.widget.RecyclerView>
 
-    <include layout="@layout/base_line"/>
+    <View
+        android:id="@+id/base_line"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/md_grey_200"
+        />
+
 </LinearLayout>

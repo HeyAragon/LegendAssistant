@@ -3,7 +3,7 @@ package com.hackhome.legendassistant.presenter;
 
 import android.widget.Toast;
 
-import com.hackhome.legendassistant.bean.HomeResultBean;
+import com.hackhome.legendassistant.bean.BaseResultBean;
 import com.hackhome.legendassistant.commen.rx.RxHttpResponseCompat;
 import com.hackhome.legendassistant.commen.rx.subscriber.ProgressSubscriber;
 import com.hackhome.legendassistant.presenter.contract.HomeContract;
@@ -28,10 +28,10 @@ public class HomePresenter extends BasePresenter<HomeContract.IHomeModel,HomeCon
 
         mModel.getHomeResult(param)
                 .compose(RxHttpResponseCompat.transfomResult())
-                .subscribe(new ProgressSubscriber<HomeResultBean>(mContext, mView) {
+                .subscribe(new ProgressSubscriber<BaseResultBean>(mContext, mView) {
                     @Override
-                    public void onNext(@NonNull HomeResultBean homeResultBean) {
-                        mView.showHomeResult(homeResultBean);
+                    public void onNext(@NonNull BaseResultBean baseResultBean) {
+                        mView.showHomeResult(baseResultBean);
                         Toast.makeText(mContext, "success", Toast.LENGTH_SHORT).show();
                     }
                 });

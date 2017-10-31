@@ -1,8 +1,7 @@
 package com.hackhome.legendassistant.presenter.contract;
 
 import com.hackhome.legendassistant.bean.BaseBean;
-import com.hackhome.legendassistant.bean.DataBean;
-import com.hackhome.legendassistant.bean.HomeResultBean;
+import com.hackhome.legendassistant.bean.BaseResultBean;
 import com.hackhome.legendassistant.ui.base.BaseView;
 
 import io.reactivex.Observable;
@@ -16,11 +15,11 @@ public interface RecommendContract {
      * 首页推荐Model
      */
     interface IRecommendModel{
-        Observable<BaseBean<HomeResultBean>> getRecommendResult(String param);
+        Observable<BaseBean<BaseResultBean>> getRecommendResult(String param);
     }
 
     interface IRecommendView extends BaseView{
-        void showHomeResultBean(HomeResultBean homeResultBean,boolean isFromRefresh);
+        void showHomeResultBean(BaseResultBean baseResultBean, boolean isFromRefresh);
 
         void loadMoreComplete();
     }

@@ -1,20 +1,15 @@
 package com.hackhome.legendassistant.presenter;
 
-import com.hackhome.legendassistant.bean.HomeResultBean;
+import com.hackhome.legendassistant.bean.BaseResultBean;
 import com.hackhome.legendassistant.commen.rx.RxHttpResponseCompat;
 import com.hackhome.legendassistant.commen.rx.subscriber.ErrorHandleSubscriber;
 import com.hackhome.legendassistant.commen.rx.subscriber.ProgressSubscriber;
 import com.hackhome.legendassistant.presenter.contract.RecommendContract;
 
-import org.reactivestreams.Subscriber;
-
 import javax.inject.Inject;
 
-import io.reactivex.Observable;
-import io.reactivex.ObservableTransformer;
 import io.reactivex.Observer;
 import io.reactivex.annotations.NonNull;
-import io.reactivex.disposables.Disposable;
 
 /**
  * Created by Administrator on 2017/9/29 0029.
@@ -31,26 +26,26 @@ public class RecommendPresenter extends BasePresenter<RecommendContract.IRecomme
     public void getRecommendResult(int page) {
 //        mModel.getRecommendResult(params + page)
 //                .compose(RxHttpResponseCompat.transfomResult())
-//                .subscribe(new ProgressSubscriber<HomeResultBean>(mContext, mView) {
+//                .subscribe(new ProgressSubscriber<BaseResultBean>(mContext, mView) {
 //                    @Override
-//                    public void onNext(@NonNull HomeResultBean homeResultBean) {
+//                    public void onNext(@NonNull BaseResultBean homeResultBean) {
 //                        mView.showHomeResultBean(homeResultBean);
 //                    }
 //                });
         Observer subscriber = null;
 
         if (page == 1) {
-            subscriber = new ProgressSubscriber<HomeResultBean>(mContext, mView) {
+            subscriber = new ProgressSubscriber<BaseResultBean>(mContext, mView) {
                 @Override
-                public void onNext(@NonNull HomeResultBean homeResultBean) {
-                    mView.showHomeResultBean(homeResultBean,true);
+                public void onNext(@NonNull BaseResultBean baseResultBean) {
+                    mView.showHomeResultBean(baseResultBean,true);
                 }
             };
         } else {
-            subscriber = new ErrorHandleSubscriber<HomeResultBean>(mContext) {
+            subscriber = new ErrorHandleSubscriber<BaseResultBean>(mContext) {
                 @Override
-                public void onNext(@NonNull HomeResultBean homeResultBean) {
-                    mView.showHomeResultBean(homeResultBean,false);
+                public void onNext(@NonNull BaseResultBean baseResultBean) {
+                    mView.showHomeResultBean(baseResultBean,false);
                 }
 
                 @Override

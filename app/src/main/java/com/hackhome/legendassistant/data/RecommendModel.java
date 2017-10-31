@@ -1,8 +1,7 @@
 package com.hackhome.legendassistant.data;
 
 import com.hackhome.legendassistant.bean.BaseBean;
-import com.hackhome.legendassistant.bean.DataBean;
-import com.hackhome.legendassistant.bean.HomeResultBean;
+import com.hackhome.legendassistant.bean.BaseResultBean;
 import com.hackhome.legendassistant.presenter.contract.RecommendContract;
 
 import io.reactivex.Observable;
@@ -25,7 +24,7 @@ public class RecommendModel implements RecommendContract.IRecommendModel{
      * @return
      */
     @Override
-    public Observable<BaseBean<HomeResultBean>> getRecommendResult(String param) {
+    public Observable<BaseBean<BaseResultBean>> getRecommendResult(String param) {
         return mApiService.getRecommendResult(param);
     }
 

@@ -4,12 +4,13 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/game_tag_shape"
     >
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/horizontal_game_icon"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
         app:roundedCornerRadius="10dp"
         android:layout_margin="10dp"
         android:layout_centerInParent="true"

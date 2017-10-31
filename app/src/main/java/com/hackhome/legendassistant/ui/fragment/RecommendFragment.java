@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.hackhome.legendassistant.R;
-import com.hackhome.legendassistant.bean.HomeResultBean;
+import com.hackhome.legendassistant.bean.BaseResultBean;
 import com.hackhome.legendassistant.bean.NavBean;
 import com.hackhome.legendassistant.bean.SlideBean;
 import com.hackhome.legendassistant.dagger.component.AppComponent;
@@ -89,17 +89,16 @@ public class RecommendFragment extends BaseRefreshFragment<RecommendPresenter> i
 
 
     @Override
-    public void showHomeResultBean(HomeResultBean homeResultBean, boolean isFromRefresh) {
+    public void showHomeResultBean(BaseResultBean baseResultBean, boolean isFromRefresh) {
 //        Log.i("huck", "showHomeResultBean: ");
-        mIsFirstLoading = false;
 
         if (isFromRefresh) {
             mRecommendMultiRecyAdapter.removeAllHeaderView();
-            mRecommendMultiRecyAdapter.addHeaderView(loadBannerView(homeResultBean.getSlide()), 0);
-            mRecommendMultiRecyAdapter.addHeaderView(loadChannelView(homeResultBean.getNav()), 1);
-            mRecommendMultiRecyAdapter.setNewData(homeResultBean.getData());
+            mRecommendMultiRecyAdapter.addHeaderView(loadBannerView(baseResultBean.getSlide()), 0);
+            mRecommendMultiRecyAdapter.addHeaderView(loadChannelView(baseResultBean.getNav()), 1);
+            mRecommendMultiRecyAdapter.setNewData(baseResultBean.getData());
         } else {
-            mRecommendMultiRecyAdapter.addData(homeResultBean.getData());
+            mRecommendMultiRecyAdapter.addData(baseResultBean.getData());
         }
 
 
@@ -107,7 +106,7 @@ public class RecommendFragment extends BaseRefreshFragment<RecommendPresenter> i
             mRefreshLayout.finishRefresh();
         }
 
-        if (homeResultBean.getNextpage() == 1) {
+        if (baseResultBean.getNextpage() == 1) {
             ++mCurrentPage;
             mRecommendMultiRecyAdapter.setEnableLoadMore(true);
             mIsHasMore = true;

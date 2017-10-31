@@ -1,6 +1,5 @@
 package com.hackhome.legendassistant.ui.base;
 
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,8 +9,6 @@ import com.hackhome.legendassistant.R;
 import com.hackhome.legendassistant.presenter.BasePresenter;
 
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import javax.inject.Inject;
 
@@ -21,7 +18,7 @@ import butterknife.BindView;
 /**
  * Created by Administrator on 2017/10/19 0019.
  */
-public abstract class BaseRefreshFragment<T extends BasePresenter> extends BaseFragment {
+public abstract class BaseRefreshFragment<T extends BasePresenter> extends BaseFragment2 {
 
     @BindView(R.id.base_recycler_view)
     RecyclerView mBaseRecyclerView;
@@ -36,7 +33,6 @@ public abstract class BaseRefreshFragment<T extends BasePresenter> extends BaseF
     public T mPresenter;
 
     @Override
-
     protected void initData() {
         mInflater = LayoutInflater.from(mContext);
         mBaseQuickAdapter = buildAdapter();
@@ -52,26 +48,16 @@ public abstract class BaseRefreshFragment<T extends BasePresenter> extends BaseF
     }
 
     @Override
-    protected int setLayoutRes() {
+    protected int getLayoutRes() {
         return R.layout.base_refresh_layout;
     }
 
     @Override
     public void initListener() {
-        mBaseRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
-            @Override
-            public void onRefresh(RefreshLayout refreshlayout) {
-                onRefreshDada();
-            }
-        });
+        mBaseRefreshLayout.setOnRefreshListener(refreshLayout -> onRefreshDada());
 
         if (mBaseQuickAdapter != null) {
-            mBaseQuickAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
-                @Override
-                public void onLoadMoreRequested() {
-                    onLoadMoreData();
-                }
-            }, mBaseRecyclerView);
+            mBaseQuickAdapter.setOnLoadMoreListener(this::onLoadMoreData, mBaseRecyclerView);
         }
     }
 

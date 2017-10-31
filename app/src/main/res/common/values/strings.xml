@@ -16,6 +16,14 @@
     <string name="tab_title_popular">人气排行榜</string>
     <string name="tab_title_expect">新游期待榜</string>
 
+
+    <string name="download_txt">下载</string>
+    <string name="change_game">换一换</string>
+
+
+    <string name="come_from_format">来自%1$s的推荐</string>
+
+
     <string name="error_unkown">未知错误</string>
     <string name="error_http">网络连接错误</string>
     <string name="error_system">服务器出错</string>

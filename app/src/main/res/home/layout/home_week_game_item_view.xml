@@ -13,6 +13,7 @@
         app:roundAsCircle="true"
         android:layout_margin="10dp"
         android:layout_alignParentLeft="true"
+        app:actualImageScaleType="centerInside"
         />
     <TextView
         android:id="@+id/week_game_title"

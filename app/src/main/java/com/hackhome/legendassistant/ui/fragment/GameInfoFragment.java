@@ -1,23 +1,19 @@
 package com.hackhome.legendassistant.ui.fragment;
 
-import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.hackhome.legendassistant.R;
-import com.hackhome.legendassistant.bean.HomeResultBean;
+import com.hackhome.legendassistant.bean.BaseResultBean;
 import com.hackhome.legendassistant.dagger.component.AppComponent;
 import com.hackhome.legendassistant.dagger.component.DaggerGameInfoComponent;
 import com.hackhome.legendassistant.dagger.module.GameInfoModule;
 import com.hackhome.legendassistant.presenter.GameInfoPresenter;
 import com.hackhome.legendassistant.presenter.contract.GameInfoContract;
+import com.hackhome.legendassistant.ui.adapter.BaseGameInfoAdapter;
 import com.hackhome.legendassistant.ui.base.BaseRefreshFragment;
 
-import butterknife.BindView;
 
 /**
  * Created by Administrator on 2017/10/18 0018.
@@ -25,6 +21,7 @@ import butterknife.BindView;
 public class GameInfoFragment extends BaseRefreshFragment<GameInfoPresenter> implements GameInfoContract.IGameInfoView {
 
     private RecyclerView mGameInfoRecyclerView;
+    private BaseGameInfoAdapter mBaseGameInfoAdapter;
 
     private String apiType;
 
@@ -48,11 +45,6 @@ public class GameInfoFragment extends BaseRefreshFragment<GameInfoPresenter> imp
     }
 
     @Override
-    protected int setLayoutRes() {
-        return R.layout.fragment_game_info;
-    }
-
-    @Override
     protected void initView() {
         mGameInfoRecyclerView = getBaseRecyclerView();
     }
@@ -69,12 +61,17 @@ public class GameInfoFragment extends BaseRefreshFragment<GameInfoPresenter> imp
 
     @Override
     public BaseQuickAdapter buildAdapter() {
-        return null;
+        mBaseGameInfoAdapter = BaseGameInfoAdapter.builder()
+                .itemResId(R.layout.base_game_info_item)
+                .apiType(apiType)
+                .build();
+        return mBaseGameInfoAdapter;
     }
 
     @Override
-    public void showGameInfoResult(HomeResultBean bean) {
-        Toast.makeText(getContext(),"SUCCESS-RANKING",Toast.LENGTH_SHORT).show();
+    public void showGameInfoResult(BaseResultBean bean) {
+        mBaseGameInfoAdapter.addData(bean.getData());
+        Toast.makeText(mContext,"SUCCESS-RANKING",Toast.LENGTH_SHORT).show();
     }
 
 }

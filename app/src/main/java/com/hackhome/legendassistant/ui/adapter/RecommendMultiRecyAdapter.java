@@ -57,24 +57,23 @@ public class RecommendMultiRecyAdapter extends BaseMultiItemQuickAdapter<DataBea
                 gameIcon = helper.getView(R.id.home_item_game_icon);
 
                 if (itemViewType == DataBean.DEFAULT_NORMAL) {
-                    helper.setVisible(R.id.home_item_refresh_icon, false);
-                    helper.setVisible(R.id.home_item_game_from, true);
-
+                    helper.setGone(R.id.home_item_refresh_icon, false);
                     bigImg.setImageURI(item.getIcon());
                     gameIcon.setImageURI(item.getLogo());
                     helper.setText(R.id.home_item_game_title,item.getTitle() );
-                    helper.setText(R.id.home_item_game_from,"来自"+item.getUserinfo().getName()+"的推荐");
+                    String format = mContext.getString(R.string.come_from_format);
+                    helper.setText(R.id.home_item_game_from,String.format(format,item.getUserinfo().getName()));
                     helper.setText(R.id.home_item_game_introduce,item.getIntro() );
                     helper.setText(R.id.home_item_update_time, DateUtils.getTimePoint(item.getTime()));
                     helper.setText(R.id.home_item_tag_one, item.getTags().get(0).getTitle());
-//                    helper.setText(R.id.home_item_tag_two, item.getTags().get(1).getTitle());
-//                    helper.setText(R.id.home_item_tag_three, item.getTags().get(2).getTitle());
+                    helper.setText(R.id.home_item_tag_two, item.getTags().get(1).getTitle());
+                    helper.setText(R.id.home_item_tag_three, item.getTags().get(2).getTitle());
                     helper.setText(R.id.home_item_game_download_count, item.getNum_download());
                     helper.setText(R.id.home_item_game_comments_count, item.getNum_comment()+"");
                 } else {
-
                     helper.setVisible(R.id.home_item_refresh_icon, true);
-                    helper.setVisible(R.id.home_item_game_from, false);
+                    helper.setText(R.id.home_item_game_from, mContext.getString(R.string.come_from_format));
+//                    helper.setOnClickListener()
                     bigImg.setImageURI(item.getHost_list().get(0).getIcon());
                     gameIcon.setImageURI(item.getHost_list().get(0).getLogo());
                     helper.setText(R.id.home_item_game_title,item.getHost_list().get(0).getTitle() );
