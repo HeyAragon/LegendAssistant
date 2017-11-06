@@ -1,13 +1,10 @@
 package com.hackhome.legendassistant.ui.adapter;
 
 import android.content.Context;
+import android.support.annotation.IntRange;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.Spannable;
-import android.text.Spanned;
-import android.text.style.BackgroundColorSpan;
-import android.text.style.ImageSpan;
 import android.view.View;
 import android.widget.TextView;
 
@@ -16,9 +13,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.hackhome.legendassistant.R;
 import com.hackhome.legendassistant.bean.DataBean;
-import com.hackhome.legendassistant.commen.utils.DateUtils;
-
-import java.util.List;
+import com.hackhome.legendassistant.common.utils.DateUtils;
 
 /**
  * Created by Administrator on 2017/9/28 0028.
@@ -31,6 +26,7 @@ public class RecommendMultiRecyAdapter extends BaseMultiItemQuickAdapter<DataBea
     private RecommendGameListAdapter mRecommendGameListAdapter;
     private RecommendHorizontalAdapter mHorizontalGameAdapter;
     private RecommendNewsAdapter mRecommendNewsAdapter;
+    private int mTempItem;
 
     public RecommendMultiRecyAdapter(Context context) {
         super(null);
@@ -72,17 +68,20 @@ public class RecommendMultiRecyAdapter extends BaseMultiItemQuickAdapter<DataBea
                     helper.setText(R.id.home_item_game_comments_count, item.getNum_comment()+"");
                 } else {
                     helper.setVisible(R.id.home_item_refresh_icon, true);
-                    helper.setText(R.id.home_item_game_from, mContext.getString(R.string.come_from_format));
-//                    helper.setOnClickListener()
-                    bigImg.setImageURI(item.getHost_list().get(0).getIcon());
-                    gameIcon.setImageURI(item.getHost_list().get(0).getLogo());
-                    helper.setText(R.id.home_item_game_title,item.getHost_list().get(0).getTitle() );
-                    helper.setText(R.id.home_item_game_introduce,item.getHost_list().get(0).getIntro());
-                    helper.setText(R.id.home_item_tag_one, item.getHost_list().get(0).getTags().get(0).getTitle());
-                    helper.setText(R.id.home_item_tag_two, item.getHost_list().get(0).getTags().get(1).getTitle());
-                    helper.setText(R.id.home_item_tag_three, item.getHost_list().get(0).getTags().get(2).getTitle());
-                    helper.setText(R.id.home_item_game_download_count, item.getHost_list().get(0).getNum_download());
-                    helper.setText(R.id.home_item_game_comments_count, item.getHost_list().get(0).getNum_comment());
+                    helper.setText(R.id.home_item_game_from, mContext.getString(R.string.change_game));
+                    helper.addOnClickListener(R.id.home_item_refresh_icon);
+                    helper.addOnClickListener(R.id.home_item_game_from);
+                    View view = helper.getView(R.id.home_item_refresh_icon);
+                    helper.setTag(R.id.home_item_game_from, view);
+                    bigImg.setImageURI(item.getHost_list().get(mTempItem).getIcon());
+                    gameIcon.setImageURI(item.getHost_list().get(mTempItem).getLogo());
+                    helper.setText(R.id.home_item_game_title,item.getHost_list().get(mTempItem).getTitle() );
+                    helper.setText(R.id.home_item_game_introduce,item.getHost_list().get(mTempItem).getIntro());
+                    helper.setText(R.id.home_item_tag_one, item.getHost_list().get(mTempItem).getTags().get(0).getTitle());
+                    helper.setText(R.id.home_item_tag_two, item.getHost_list().get(mTempItem).getTags().get(1).getTitle());
+                    helper.setText(R.id.home_item_tag_three, item.getHost_list().get(mTempItem).getTags().get(2).getTitle());
+                    helper.setText(R.id.home_item_game_download_count, item.getHost_list().get(mTempItem).getNum_download());
+                    helper.setText(R.id.home_item_game_comments_count, item.getHost_list().get(mTempItem).getNum_comment());
                 }
                 break;
 
@@ -117,6 +116,13 @@ public class RecommendMultiRecyAdapter extends BaseMultiItemQuickAdapter<DataBea
 
         }
     }
+
+
+    public void refreshTempItem(@IntRange(from = 0, to = 9) int i) {
+        this.mTempItem = i;
+    }
+
+
 
 
 

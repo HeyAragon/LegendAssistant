@@ -1,12 +1,12 @@
-package com.hackhome.legendassistant.commen.rx;
+package com.hackhome.legendassistant.common.rx;
 
 import android.content.Context;
 import android.widget.Toast;
 
 import com.google.gson.JsonParseException;
-import com.hackhome.legendassistant.commen.exception.ApiException;
-import com.hackhome.legendassistant.commen.exception.BaseException;
-import com.hackhome.legendassistant.commen.exception.ErrorMessageFactory;
+import com.hackhome.legendassistant.common.exception.ApiException;
+import com.hackhome.legendassistant.common.exception.BaseException;
+import com.hackhome.legendassistant.common.exception.ErrorMessageFactory;
 
 import java.net.SocketException;
 import java.net.SocketTimeoutException;

@@ -4,8 +4,8 @@ package com.hackhome.legendassistant.presenter;
 import android.widget.Toast;
 
 import com.hackhome.legendassistant.bean.BaseResultBean;
-import com.hackhome.legendassistant.commen.rx.RxHttpResponseCompat;
-import com.hackhome.legendassistant.commen.rx.subscriber.ProgressSubscriber;
+import com.hackhome.legendassistant.common.rx.RxHttpResponseCompat;
+import com.hackhome.legendassistant.common.rx.subscriber.ProgressSubscriber;
 import com.hackhome.legendassistant.presenter.contract.HomeContract;
 
 import javax.inject.Inject;

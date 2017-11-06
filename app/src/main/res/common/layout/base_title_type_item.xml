@@ -7,10 +7,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:paddingBottom="20dp"
-        android:paddingTop="20dp"
+        android:paddingLeft="10dp"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
         >
         <TextView
             android:id="@+id/base_item_recommend_type_txt"
@@ -40,7 +39,9 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/base_item_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        >
 
     </android.support.v7.widget.RecyclerView>
 

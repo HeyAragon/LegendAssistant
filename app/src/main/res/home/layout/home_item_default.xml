@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:fresco="http://schemas.android.com/apk/res-auto">
+    android:orientation="vertical"
+    >
+
     <RelativeLayout
         android:id="@+id/home_floor_one_relative_container"
         android:layout_width="match_parent"
@@ -20,6 +23,7 @@
             android:layout_centerVertical="true"
 
             />
+
         <TextView
             android:id="@+id/home_item_game_title"
             style="@style/text_big_black"
@@ -27,6 +31,7 @@
             android:layout_toEndOf="@id/home_item_game_icon"
             android:layout_centerVertical="true"
             />
+
         <TextView
             android:id="@+id/home_item_game_from"
             style="@style/text_small_gray"
@@ -48,11 +53,12 @@
             android:scaleType="centerInside"
             />
     </RelativeLayout>
+
     <FrameLayout
         android:id="@+id/home_floor_two_frame_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/home_floor_one_relative_container">
+        >
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/home_item_big_img"
             android:layout_width="match_parent"
@@ -69,7 +75,6 @@
     <TextView
         android:id="@+id/home_item_game_introduce"
         style="@style/text_middle_black"
-        android:layout_below="@id/home_floor_two_frame_container"
         android:layout_margin="10dp"
         />
 
@@ -78,15 +83,14 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/md_grey_200"
-        android:layout_below="@id/home_item_game_introduce"
-
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         />
 
     <RelativeLayout
         android:id="@+id/home_floor_three_relative_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/home_item_line"
         android:layout_margin="10dp"
         >
         <TextView
@@ -98,6 +102,7 @@
             android:layout_marginEnd="10dp"
             android:background="@drawable/game_tag_shape"
             />
+
         <TextView
             android:id="@+id/home_item_tag_two"
             style="@style/text_middle_gray"
@@ -107,6 +112,7 @@
             android:layout_marginEnd="10dp"
             android:background="@drawable/game_tag_shape"
             />
+
         <TextView
             android:id="@+id/home_item_tag_three"
             style="@style/text_middle_gray"
@@ -140,8 +146,6 @@
             />
     </RelativeLayout>
 
-    <include
-        layout="@layout/base_line"
-        />
+    <include layout="@layout/base_line"/>
 
-</RelativeLayout>
+</LinearLayout>

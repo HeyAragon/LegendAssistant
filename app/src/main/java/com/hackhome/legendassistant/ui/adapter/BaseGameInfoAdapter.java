@@ -1,11 +1,19 @@
 package com.hackhome.legendassistant.ui.adapter;
 
+import android.os.Environment;
 import android.support.annotation.LayoutRes;
+import android.view.View;
+import android.widget.Toast;
+
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.hackhome.legendassistant.R;
 import com.hackhome.legendassistant.bean.DataBean;
+import com.liulishuo.filedownloader.FileDownloader;
+import com.socks.library.KLog;
+
+import java.io.File;
 
 /**
  * Created by Administrator on 2017/10/18 0018.
@@ -50,6 +58,16 @@ public class BaseGameInfoAdapter extends BaseQuickAdapter<DataBean,BaseViewHolde
             helper.setText(R.id.base_game_sub_title, item.getTime());
         }
 
+        helper.setOnClickListener(R.id.base_download_btn, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(mContext, "fuck", Toast.LENGTH_SHORT).show();
+                File file = Environment.getExternalStorageDirectory().getAbsoluteFile();
+                KLog.i("aragon",file);
+//                FileDownloader.setup(mContext);
+//                FileDownloader.getImpl().create(item.getDowninfo().getApkurl()).start();
+            }
+        });
         //main master
     }
 

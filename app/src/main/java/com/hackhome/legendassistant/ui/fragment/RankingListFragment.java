@@ -1,8 +1,14 @@
 package com.hackhome.legendassistant.ui.fragment;
 
 
+import android.Manifest;
+import android.app.Activity;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -11,12 +17,14 @@ import android.view.ViewGroup;
 
 import com.hackhome.legendassistant.R;
 import com.hackhome.legendassistant.ui.adapter.BaseFragmentPagerAdapter;
+import com.socks.library.KLog;
 
 import java.util.ArrayList;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+
+import static android.Manifest.permission_group.STORAGE;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -61,11 +69,27 @@ public class RankingListFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        if (getArguments() != null) {
-//            mParam1 = getArguments().getString(ARG_PARAM1);
-//            mParam2 = getArguments().getString(ARG_PARAM2);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (getContext().checkSelfPermission(STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                KLog.i("aragon","not_granted");
+                ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 111);
+            } else {
+                KLog.i("aragon","granted");
+            }
+
+        }
+    }
 //
-//        }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 111) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                KLog.i("aragon", "granted");
+            } else {
+                KLog.i("aragon","permission denied");
+            }
+        }
     }
 
     @Override
@@ -98,4 +122,6 @@ public class RankingListFragment extends Fragment {
         super.onDestroyView();
         mBind.unbind();
     }
+
+
 }

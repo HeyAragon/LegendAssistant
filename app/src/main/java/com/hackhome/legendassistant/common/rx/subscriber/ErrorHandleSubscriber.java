@@ -1,9 +1,9 @@
-package com.hackhome.legendassistant.commen.rx.subscriber;
+package com.hackhome.legendassistant.common.rx.subscriber;
 
 import android.content.Context;
 
-import com.hackhome.legendassistant.commen.exception.BaseException;
-import com.hackhome.legendassistant.commen.rx.RxErrorHandler;
+import com.hackhome.legendassistant.common.exception.BaseException;
+import com.hackhome.legendassistant.common.rx.RxErrorHandler;
 
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;

@@ -38,6 +38,7 @@ public abstract class BaseRefreshFragment<T extends BasePresenter> extends BaseF
         mBaseQuickAdapter = buildAdapter();
         initRecyclerView();
         initView();
+        setListener();
     }
 
     private void initRecyclerView() {
@@ -70,6 +71,10 @@ public abstract class BaseRefreshFragment<T extends BasePresenter> extends BaseF
     }
 
     protected abstract void initView();
+
+    protected void setListener() {
+
+    }
 
     protected abstract void onRefreshDada();
 

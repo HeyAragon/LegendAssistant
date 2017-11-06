@@ -1,9 +1,9 @@
-package com.hackhome.legendassistant.commen.rx;
+package com.hackhome.legendassistant.common.rx;
 
 import android.graphics.drawable.GradientDrawable;
 
 import com.hackhome.legendassistant.bean.BaseBean;
-import com.hackhome.legendassistant.commen.exception.ApiException;
+import com.hackhome.legendassistant.common.exception.ApiException;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;

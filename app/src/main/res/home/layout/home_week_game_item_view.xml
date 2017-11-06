@@ -17,22 +17,19 @@
         />
     <TextView
         android:id="@+id/week_game_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/text_normal_black"
         android:layout_toRightOf="@id/week_game_icon"
         android:layout_alignTop="@id/week_game_icon"
         />
     <TextView
         android:id="@+id/week_game_count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/text_small_gray"
         android:layout_toRightOf="@id/week_game_title"
         android:layout_alignBottom="@id/week_game_title"
         />
     <TextView
         android:id="@+id/week_game_intro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/text_middle_gray"
         android:layout_alignLeft="@id/week_game_title"
         android:layout_alignBottom="@id/week_game_icon"
         />

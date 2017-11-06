@@ -1,4 +1,4 @@
-package com.hackhome.legendassistant.commen.fresco;
+package com.hackhome.legendassistant.common.fresco;
 
 import android.app.ActivityManager;
 import android.content.Context;

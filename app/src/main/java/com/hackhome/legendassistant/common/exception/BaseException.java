@@ -1,4 +1,4 @@
-package com.hackhome.legendassistant.commen.exception;
+package com.hackhome.legendassistant.common.exception;
 
 /**
  * 菜鸟窝http://www.cniao5.com 一个高端的互联网技能学习平台

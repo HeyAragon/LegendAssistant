@@ -1,4 +1,4 @@
-package com.hackhome.legendassistant.commen.utils;
+package com.hackhome.legendassistant.common.utils;
 
 import android.text.format.DateFormat;
 

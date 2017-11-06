@@ -1,4 +1,4 @@
-package com.hackhome.legendassistant.commen.exception;
+package com.hackhome.legendassistant.common.exception;
 
 import android.content.Context;
 

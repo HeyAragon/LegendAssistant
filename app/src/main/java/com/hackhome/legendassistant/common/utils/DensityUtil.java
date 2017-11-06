@@ -1,4 +1,4 @@
-package com.hackhome.legendassistant.commen.utils;
+package com.hackhome.legendassistant.common.utils;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -9,7 +9,6 @@ import android.util.TypedValue;
 import android.view.Display;
 import android.view.WindowManager;
 
-import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 /**

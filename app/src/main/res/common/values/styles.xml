@@ -37,10 +37,24 @@
         <item name="android:textSize">12sp</item>
     </style>
 
+    <style name="text_middle_orange">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/md_yellow_700</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
     <style name="text_middle_gray">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/md_grey_500</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="text_middle_gray_300">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/md_grey_300</item>
         <item name="android:textSize">12sp</item>
     </style>
 

@@ -29,6 +29,7 @@ import com.youth.banner.loader.ImageLoader;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by Administrator on 2017/9/29 0029.
@@ -56,6 +57,21 @@ public class RecommendFragment extends BaseRefreshFragment<RecommendPresenter> i
     protected void initView() {
         mRecommendRecyclerView = getBaseRecyclerView();
         mRefreshLayout = getBaseRefreshLayout();
+    }
+
+    @Override
+    protected void setListener() {
+        mRecommendMultiRecyAdapter.setOnItemChildClickListener((adapter, view, position) -> {
+            //如果点击的是刷新icon，则旋转图标，如果为“换一换”，取“换一换”的tag进行旋转，即刷新icon
+            if (view.getId() == R.id.home_item_game_from) {
+                View refreshIcon = (View) view.getTag();
+                refreshIcon.animate().rotation(360).setDuration(500).start();
+            } else {
+                view.animate().rotation(360).setDuration(500).start();
+            }
+            mRecommendMultiRecyAdapter.refreshTempItem(new Random().nextInt(10));
+            mRecommendMultiRecyAdapter.notifyItemChanged(position+adapter.getHeaderLayoutCount());
+        });
     }
 
     @Override
@@ -100,7 +116,6 @@ public class RecommendFragment extends BaseRefreshFragment<RecommendPresenter> i
         } else {
             mRecommendMultiRecyAdapter.addData(baseResultBean.getData());
         }
-
 
         if (getBaseRefreshLayout().isRefreshing()) {
             mRefreshLayout.finishRefresh();
