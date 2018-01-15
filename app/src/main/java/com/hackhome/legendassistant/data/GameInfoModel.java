@@ -1,7 +1,8 @@
 package com.hackhome.legendassistant.data;
 
 import com.hackhome.legendassistant.bean.BaseBean;
-import com.hackhome.legendassistant.bean.HomeResultBean;
+import com.hackhome.legendassistant.bean.BaseResultBean;
+import com.hackhome.legendassistant.bean.DataBean;
 import com.hackhome.legendassistant.presenter.contract.GameInfoContract;
 
 import io.reactivex.Observable;
@@ -18,7 +19,7 @@ public class GameInfoModel implements GameInfoContract.IGameInfoModel {
     }
 
     @Override
-    public Observable<BaseBean<HomeResultBean>> getGameInfoResult(String param) {
+    public Observable<BaseBean<BaseResultBean>> getGameInfoResult(String param) {
         return mApiService.getGameInfoResult(param);
     }
 }

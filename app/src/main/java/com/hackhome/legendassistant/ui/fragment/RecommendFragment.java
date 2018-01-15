@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.hackhome.legendassistant.R;
-import com.hackhome.legendassistant.bean.HomeResultBean;
+import com.hackhome.legendassistant.bean.BaseResultBean;
 import com.hackhome.legendassistant.bean.NavBean;
 import com.hackhome.legendassistant.bean.SlideBean;
 import com.hackhome.legendassistant.dagger.component.AppComponent;
@@ -29,6 +29,7 @@ import com.youth.banner.loader.ImageLoader;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by Administrator on 2017/9/29 0029.
@@ -56,6 +57,21 @@ public class RecommendFragment extends BaseRefreshFragment<RecommendPresenter> i
     protected void initView() {
         mRecommendRecyclerView = getBaseRecyclerView();
         mRefreshLayout = getBaseRefreshLayout();
+    }
+
+    @Override
+    protected void setListener() {
+        mRecommendMultiRecyAdapter.setOnItemChildClickListener((adapter, view, position) -> {
+            //如果点击的是刷新icon，则旋转图标，如果为“换一换”，取“换一换”的tag进行旋转，即刷新icon
+            if (view.getId() == R.id.home_item_game_from) {
+                View refreshIcon = (View) view.getTag();
+                refreshIcon.animate().rotation(360).setDuration(500).start();
+            } else {
+                view.animate().rotation(360).setDuration(500).start();
+            }
+            mRecommendMultiRecyAdapter.refreshTempItem(new Random().nextInt(10));
+            mRecommendMultiRecyAdapter.notifyItemChanged(position+adapter.getHeaderLayoutCount());
+        });
     }
 
     @Override
@@ -89,25 +105,23 @@ public class RecommendFragment extends BaseRefreshFragment<RecommendPresenter> i
 
 
     @Override
-    public void showHomeResultBean(HomeResultBean homeResultBean, boolean isFromRefresh) {
+    public void showHomeResultBean(BaseResultBean baseResultBean, boolean isFromRefresh) {
 //        Log.i("huck", "showHomeResultBean: ");
-        mIsFirstLoading = false;
 
         if (isFromRefresh) {
             mRecommendMultiRecyAdapter.removeAllHeaderView();
-            mRecommendMultiRecyAdapter.addHeaderView(loadBannerView(homeResultBean.getSlide()), 0);
-            mRecommendMultiRecyAdapter.addHeaderView(loadChannelView(homeResultBean.getNav()), 1);
-            mRecommendMultiRecyAdapter.setNewData(homeResultBean.getData());
+            mRecommendMultiRecyAdapter.addHeaderView(loadBannerView(baseResultBean.getSlide()), 0);
+            mRecommendMultiRecyAdapter.addHeaderView(loadChannelView(baseResultBean.getNav()), 1);
+            mRecommendMultiRecyAdapter.setNewData(baseResultBean.getData());
         } else {
-            mRecommendMultiRecyAdapter.addData(homeResultBean.getData());
+            mRecommendMultiRecyAdapter.addData(baseResultBean.getData());
         }
-
 
         if (getBaseRefreshLayout().isRefreshing()) {
             mRefreshLayout.finishRefresh();
         }
 
-        if (homeResultBean.getNextpage() == 1) {
+        if (baseResultBean.getNextpage() == 1) {
             ++mCurrentPage;
             mRecommendMultiRecyAdapter.setEnableLoadMore(true);
             mIsHasMore = true;

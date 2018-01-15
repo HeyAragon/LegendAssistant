@@ -1,8 +1,8 @@
 package com.hackhome.legendassistant.presenter;
 
-import com.hackhome.legendassistant.bean.HomeResultBean;
-import com.hackhome.legendassistant.commen.rx.RxHttpResponseCompat;
-import com.hackhome.legendassistant.commen.rx.subscriber.ProgressSubscriber;
+import com.hackhome.legendassistant.bean.BaseResultBean;
+import com.hackhome.legendassistant.common.rx.RxHttpResponseCompat;
+import com.hackhome.legendassistant.common.rx.subscriber.ProgressSubscriber;
 import com.hackhome.legendassistant.presenter.contract.GameInfoContract;
 
 import javax.inject.Inject;
@@ -14,6 +14,7 @@ import io.reactivex.annotations.NonNull;
  */
 public class GameInfoPresenter extends BasePresenter<GameInfoContract.IGameInfoModel, GameInfoContract.IGameInfoView> {
 
+
     private String commonParam = "ranktop-home-140-type-";
 
     @Inject
@@ -24,10 +25,11 @@ public class GameInfoPresenter extends BasePresenter<GameInfoContract.IGameInfoM
     public void getGameInfoResult(String type) {
         mModel.getGameInfoResult(commonParam + type)
                 .compose(RxHttpResponseCompat.transfomResult())
-                .subscribe(new ProgressSubscriber<HomeResultBean>(mContext, mView) {
+                .subscribe(new ProgressSubscriber<BaseResultBean>(mContext, mView) {
                     @Override
-                    public void onNext(@NonNull HomeResultBean bean) {
+                    public void onNext(@NonNull BaseResultBean bean) {
                         mView.showGameInfoResult(bean);
+                        System.out.print("");
                     }
 
                     @Override

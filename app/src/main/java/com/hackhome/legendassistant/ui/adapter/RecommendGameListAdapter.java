@@ -29,7 +29,8 @@ public class RecommendGameListAdapter extends BaseQuickAdapter<TagsBean,BaseView
         SimpleDraweeView icon = helper.getView(R.id.week_game_icon);
         icon.setImageURI(Uri.parse(item.getIcon()));
         helper.setText(R.id.week_game_title, item.getTitle());
-        helper.setText(R.id.week_game_count, item.getNum()+"");
+        String bracketsFormat = mContext.getString(R.string.brackets);
+        helper.setText(R.id.week_game_count, String.format(bracketsFormat, item.getNum()));
         helper.setText(R.id.week_game_intro, item.getIntro());
     }
 }

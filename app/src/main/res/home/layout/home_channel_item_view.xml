@@ -3,22 +3,21 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     >
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/channel_icon"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        app:roundAsCircle="true"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+
         />
     <TextView
         android:id="@+id/channel_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/text_middle_black"
         android:layout_below="@id/channel_icon"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
         />
 
 </RelativeLayout>

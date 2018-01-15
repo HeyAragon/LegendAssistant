@@ -1,7 +1,7 @@
 package com.hackhome.legendassistant.ui.fragment;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.hackhome.legendassistant.bean.HomeResultBean;
+import com.hackhome.legendassistant.bean.BaseResultBean;
 import com.hackhome.legendassistant.dagger.component.AppComponent;
 import com.hackhome.legendassistant.presenter.RecommendPresenter;
 import com.hackhome.legendassistant.presenter.contract.RecommendContract;
@@ -49,7 +49,7 @@ public class StrategyFragment extends BaseRefreshFragment<RecommendPresenter> im
 
 
     @Override
-    public void showHomeResultBean(HomeResultBean homeResultBean, boolean isFromRefresh) {
+    public void showHomeResultBean(BaseResultBean baseResultBean, boolean isFromRefresh) {
 
     }
 
